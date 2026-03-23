@@ -1,0 +1,11 @@
+node_modules/
+build/
+.plasmo/
+dist/
+*.log
+*.zip
+.DS_Store
+Thumbs.db
+.env
+.env.*
+.claude/

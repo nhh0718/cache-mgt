@@ -1,0 +1,52 @@
+{
+  "name": "cookie-manager",
+  "displayName": "Cookie Manager",
+  "version": "0.1.0",
+  "description": "Comprehensive cookie management extension for Chrome",
+  "author": "HTN",
+  "scripts": {
+    "dev": "plasmo dev",
+    "build": "plasmo build",
+    "package": "plasmo package"
+  },
+  "dependencies": {
+    "plasmo": "0.90.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.287",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@swc/core",
+      "esbuild",
+      "lmdb",
+      "msgpackr-extract",
+      "sharp"
+    ]
+  },
+  "manifest": {
+    "permissions": [
+      "cookies",
+      "storage",
+      "tabs",
+      "sidePanel"
+    ],
+    "host_permissions": [
+      "<all_urls>"
+    ],
+    "side_panel": {
+      "default_path": "sidepanel.html"
+    },
+    "default_locale": "vi"
+  }
+}
