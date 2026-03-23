@@ -1,55 +1,109 @@
 # 🍪 Cookie Manager — Chrome Extension
 
+Quản lý cookie toàn diện cho Chrome — xem, sửa, tìm kiếm, nhập/xuất, hồ sơ cookie, giám sát thời gian thực.
+
 Comprehensive cookie management extension for Chrome. View, edit, search, import/export, profiles, real-time monitoring — all in one tool.
 
-## Features
+## Tính năng / Features
 
-| Feature | Popup | Side Panel | Full Page |
-|---------|:-----:|:----------:|:---------:|
-| View cookies (current tab) | ✅ | ✅ | ✅ |
-| View all cookies (all domains) | — | — | ✅ |
-| Search & filter | ✅ | ✅ | ✅ |
-| Edit / create / delete | ✅ | ✅ | ✅ |
-| Copy (value, name, full string) | ✅ | ✅ | ✅ |
-| Bulk select & delete | ✅ | ✅ | ✅ |
-| Import / Export (JSON, Netscape, Header) | — | — | ✅ |
-| Cookie Profiles (save & restore) | — | — | ✅ |
-| Real-time cookie monitor | — | ✅ | ✅ |
-| Dark / Light / System theme | ✅ | ✅ | ✅ |
-| Vietnamese / English | ✅ | ✅ | ✅ |
+| Tính năng | Popup | Side Panel | Full Page |
+|-----------|:-----:|:----------:|:---------:|
+| Xem cookie (tab hiện tại) | ✅ | ✅ | ✅ |
+| Xem tất cả cookie (mọi domain) | — | — | ✅ |
+| Tìm kiếm & lọc | ✅ | ✅ | ✅ |
+| Sửa / tạo / xóa cookie | ✅ | ✅ | ✅ |
+| Sao chép (value, name, full string) | ✅ | ✅ | ✅ |
+| Chọn nhiều & xóa hàng loạt | ✅ | ✅ | ✅ |
+| Nhập / Xuất (JSON, Netscape, Header) | — | — | ✅ |
+| Hồ sơ Cookie (lưu & khôi phục) | — | — | ✅ |
+| Giám sát cookie thời gian thực | — | ✅ | ✅ |
+| Giao diện Sáng / Tối / Hệ thống | ✅ | ✅ | ✅ |
+| Tiếng Việt / English | ✅ | ✅ | ✅ |
 
-## Screenshots
+---
 
-> TODO: Add screenshots after first build
+## 📥 Hướng dẫn cài đặt (Tiếng Việt)
 
-## Installation
+### Cách 1: Cài nhanh (không cần code)
 
-### From Chrome Web Store
+1. **Tải source code** từ GitHub:
+   - Vào 👉 [https://github.com/nhh0718/cache-mgt](https://github.com/nhh0718/cache-mgt)
+   - Nhấn nút **Code** (màu xanh) → chọn **Download ZIP**
+   - Giải nén file ZIP ra một thư mục
 
-> Coming soon
+2. **Cài Node.js** (nếu chưa có):
+   - Tải tại 👉 [https://nodejs.org](https://nodejs.org) → chọn bản **LTS**
+   - Cài xong, mở **Command Prompt** (hoặc Terminal), gõ kiểm tra:
+     ```
+     node --version
+     ```
 
-### From Source (Developer)
+3. **Cài pnpm** (trình quản lý package):
+   - Mở Command Prompt, gõ:
+     ```
+     npm install -g pnpm
+     ```
+
+4. **Build extension**:
+   - Mở Command Prompt, di chuyển vào thư mục đã giải nén:
+     ```
+     cd đường-dẫn-tới-thư-mục/cache-mgt-main
+     ```
+   - Cài dependencies và build:
+     ```
+     pnpm install
+     pnpm build
+     ```
+   - Đợi đến khi thấy `DONE` là xong ✅
+
+5. **Cài vào Chrome**:
+   - Mở Chrome, gõ vào thanh địa chỉ: `chrome://extensions/`
+   - Bật **Chế độ nhà phát triển** (Developer mode) — công tắc ở góc **trên bên phải**
+   - Nhấn nút **Tải tiện ích đã giải nén** (Load unpacked)
+   - Chọn thư mục `build/chrome-mv3-prod` bên trong thư mục dự án
+   - Xong! 🎉 Extension sẽ xuất hiện trên thanh công cụ Chrome
+
+> 💡 **Mẹo**: Nhấn vào biểu tượng ghim (📌) trên thanh extension để ghim Cookie Manager cho dễ truy cập.
+
+### Cách 2: Clone bằng Git (dành cho developer)
 
 ```bash
-# Clone
 git clone https://github.com/nhh0718/cache-mgt.git
 cd cache-mgt
-
-# Install dependencies
 pnpm install
-
-# Development (with HMR)
-pnpm dev
-
-# Production build
 pnpm build
 ```
 
-Then load the extension:
-1. Open `chrome://extensions/`
-2. Enable **Developer mode** (top right)
-3. Click **Load unpacked**
-4. Select the `build/chrome-mv3-dev` (dev) or `build/chrome-mv3-prod` (production) folder
+Sau đó mở `chrome://extensions/` → bật **Developer mode** → **Load unpacked** → chọn thư mục `build/chrome-mv3-prod`.
+
+---
+
+## 📥 Installation (English)
+
+### Option 1: Quick Install (no coding required)
+
+1. Go to [https://github.com/nhh0718/cache-mgt](https://github.com/nhh0718/cache-mgt) → click **Code** → **Download ZIP** → extract
+2. Install [Node.js LTS](https://nodejs.org) if you don't have it
+3. Install pnpm: `npm install -g pnpm`
+4. Open terminal in the extracted folder, run:
+   ```bash
+   pnpm install
+   pnpm build
+   ```
+5. Open `chrome://extensions/` → enable **Developer mode** (top right) → click **Load unpacked** → select the `build/chrome-mv3-prod` folder
+
+### Option 2: Clone with Git
+
+```bash
+git clone https://github.com/nhh0718/cache-mgt.git
+cd cache-mgt
+pnpm install
+pnpm build
+```
+
+Then: `chrome://extensions/` → **Developer mode** ON → **Load unpacked** → select `build/chrome-mv3-prod`
+
+---
 
 ## Tech Stack
 
@@ -77,30 +131,28 @@ src/
     └── utils/           # Cookie parser, filter logic
 ```
 
-**Design principle**: All 3 views (popup, sidepanel, fullpage) share the same components from `src/shared/`. Each view is a thin layout wrapper.
-
 ## Permissions
 
-| Permission | Why |
-|-----------|-----|
-| `cookies` | Read, create, modify, delete cookies (core feature) |
-| `storage` | Persist preferences & profiles locally |
-| `tabs` | Detect active tab URL for domain filtering |
-| `sidePanel` | Enable side panel view |
-| `<all_urls>` | Chrome Cookies API requires host permissions for cross-domain cookie access |
+| Permission | Mục đích / Why |
+|-----------|----------------|
+| `cookies` | Đọc, tạo, sửa, xóa cookie (tính năng chính) |
+| `storage` | Lưu cài đặt & hồ sơ trên máy |
+| `tabs` | Nhận diện tab đang mở để lọc cookie |
+| `sidePanel` | Bật chế độ bảng bên |
+| `<all_urls>` | Chrome Cookies API yêu cầu quyền host để truy cập cookie mọi domain |
 
-**Privacy**: Zero data collection. No analytics. No network requests. Everything stays on your device. See [Privacy Policy](src/tabs/privacy-policy.tsx).
+**Quyền riêng tư**: Không thu thập dữ liệu. Không analytics. Không gửi dữ liệu ra ngoài. Mọi thứ ở trên máy bạn.
 
 ## Cookie Formats
 
-The extension supports 3 import/export formats:
+Hỗ trợ 3 định dạng nhập/xuất:
 
-**JSON** — Standard array of cookie objects
+**JSON**
 ```json
 [{"name":"token","value":"abc123","domain":".example.com","path":"/","secure":true}]
 ```
 
-**Netscape/Mozilla** — Tab-separated, compatible with curl/wget
+**Netscape/Mozilla** — tương thích curl/wget
 ```
 .example.com	TRUE	/	TRUE	1735689600	token	abc123
 ```
@@ -113,17 +165,21 @@ token=abc123; Domain=.example.com; Path=/; Secure; HttpOnly
 ## Development
 
 ```bash
-pnpm dev        # Start dev server with HMR
-pnpm build      # Production build
-pnpm package    # Build + create .zip for Chrome Web Store
+pnpm dev        # Chạy dev server (HMR)
+pnpm build      # Build production
+pnpm package    # Build + tạo .zip cho Chrome Web Store
 ```
 
 ## Localization
 
-Supports English (`en`) and Vietnamese (`vi`). Default: Vietnamese.
+Hỗ trợ Tiếng Việt (`vi`, mặc định) và English (`en`).
 
-Users can switch languages at runtime via the language toggle button (no browser restart needed). Translations are in `assets/locales/`.
+Chuyển ngôn ngữ ngay trong giao diện — không cần đổi ngôn ngữ trình duyệt.
 
 ## License
 
-MIT
+MIT — [LICENSE](LICENSE)
+
+## Author
+
+**HTN** — [github.com/nhh0718](https://github.com/nhh0718)
