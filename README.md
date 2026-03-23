@@ -22,86 +22,46 @@ Comprehensive cookie management extension for Chrome. View, edit, search, import
 
 ---
 
-## 📥 Hướng dẫn cài đặt (Tiếng Việt)
+## 📥 Cài đặt — Chỉ 3 bước, không cần code!
 
-### Cách 1: Cài nhanh (không cần code)
+**Bước 1** — Tải về:
+- Vào 👉 [https://github.com/nhh0718/cache-mgt](https://github.com/nhh0718/cache-mgt)
+- Nhấn nút **Code** (màu xanh) → **Download ZIP**
+- Giải nén file ZIP ra một thư mục
 
-1. **Tải source code** từ GitHub:
-   - Vào 👉 [https://github.com/nhh0718/cache-mgt](https://github.com/nhh0718/cache-mgt)
-   - Nhấn nút **Code** (màu xanh) → chọn **Download ZIP**
-   - Giải nén file ZIP ra một thư mục
+**Bước 2** — Mở trang Extension:
+- Mở Chrome, gõ vào thanh địa chỉ: `chrome://extensions/`
+- Bật **Chế độ nhà phát triển** (Developer mode) — công tắc ở góc **trên bên phải**
 
-2. **Cài Node.js** (nếu chưa có):
-   - Tải tại 👉 [https://nodejs.org](https://nodejs.org) → chọn bản **LTS**
-   - Cài xong, mở **Command Prompt** (hoặc Terminal), gõ kiểm tra:
-     ```
-     node --version
-     ```
-
-3. **Cài pnpm** (trình quản lý package):
-   - Mở Command Prompt, gõ:
-     ```
-     npm install -g pnpm
-     ```
-
-4. **Build extension**:
-   - Mở Command Prompt, di chuyển vào thư mục đã giải nén:
-     ```
-     cd đường-dẫn-tới-thư-mục/cache-mgt-main
-     ```
-   - Cài dependencies và build:
-     ```
-     pnpm install
-     pnpm build
-     ```
-   - Đợi đến khi thấy `DONE` là xong ✅
-
-5. **Cài vào Chrome**:
-   - Mở Chrome, gõ vào thanh địa chỉ: `chrome://extensions/`
-   - Bật **Chế độ nhà phát triển** (Developer mode) — công tắc ở góc **trên bên phải**
-   - Nhấn nút **Tải tiện ích đã giải nén** (Load unpacked)
-   - Chọn thư mục `build/chrome-mv3-prod` bên trong thư mục dự án
-   - Xong! 🎉 Extension sẽ xuất hiện trên thanh công cụ Chrome
+**Bước 3** — Cài extension:
+- Nhấn nút **Tải tiện ích đã giải nén** (Load unpacked)
+- Tìm đến thư mục đã giải nén → chọn thư mục `build/chrome-mv3-prod`
+- Xong! 🎉 Extension xuất hiện trên thanh công cụ Chrome
 
 > 💡 **Mẹo**: Nhấn vào biểu tượng ghim (📌) trên thanh extension để ghim Cookie Manager cho dễ truy cập.
 
-### Cách 2: Clone bằng Git (dành cho developer)
+---
 
-```bash
-git clone https://github.com/nhh0718/cache-mgt.git
-cd cache-mgt
-pnpm install
-pnpm build
-```
+## 📥 Installation — 3 steps, no build required!
 
-Sau đó mở `chrome://extensions/` → bật **Developer mode** → **Load unpacked** → chọn thư mục `build/chrome-mv3-prod`.
+1. Go to [https://github.com/nhh0718/cache-mgt](https://github.com/nhh0718/cache-mgt) → **Code** → **Download ZIP** → extract
+2. Open `chrome://extensions/` → enable **Developer mode** (top right)
+3. Click **Load unpacked** → select the `build/chrome-mv3-prod` folder inside the extracted ZIP
+
+Done! The extension icon appears in your Chrome toolbar.
 
 ---
 
-## 📥 Installation (English)
-
-### Option 1: Quick Install (no coding required)
-
-1. Go to [https://github.com/nhh0718/cache-mgt](https://github.com/nhh0718/cache-mgt) → click **Code** → **Download ZIP** → extract
-2. Install [Node.js LTS](https://nodejs.org) if you don't have it
-3. Install pnpm: `npm install -g pnpm`
-4. Open terminal in the extracted folder, run:
-   ```bash
-   pnpm install
-   pnpm build
-   ```
-5. Open `chrome://extensions/` → enable **Developer mode** (top right) → click **Load unpacked** → select the `build/chrome-mv3-prod` folder
-
-### Option 2: Clone with Git
+## 🛠 Development (dành cho developer)
 
 ```bash
 git clone https://github.com/nhh0718/cache-mgt.git
 cd cache-mgt
 pnpm install
-pnpm build
+pnpm dev          # Dev server (HMR)
+pnpm build        # Production build
+pnpm package      # Build + .zip for Chrome Web Store
 ```
-
-Then: `chrome://extensions/` → **Developer mode** ON → **Load unpacked** → select `build/chrome-mv3-prod`
 
 ---
 
@@ -160,14 +120,6 @@ Hỗ trợ 3 định dạng nhập/xuất:
 **HTTP Header** — Set-Cookie format
 ```
 token=abc123; Domain=.example.com; Path=/; Secure; HttpOnly
-```
-
-## Development
-
-```bash
-pnpm dev        # Chạy dev server (HMR)
-pnpm build      # Build production
-pnpm package    # Build + tạo .zip cho Chrome Web Store
 ```
 
 ## Localization
