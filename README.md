@@ -25,8 +25,7 @@ Comprehensive cookie management extension for Chrome. View, edit, search, import
 ## 📥 Cài đặt — Chỉ 3 bước, không cần code!
 
 **Bước 1** — Tải về:
-- Vào 👉 [https://github.com/nhh0718/cache-mgt](https://github.com/nhh0718/cache-mgt)
-- Nhấn nút **Code** (màu xanh) → **Download ZIP**
+- 👉 [**Tải cookie-manager-v0.1.0.zip tại đây**](https://github.com/nhh0718/cache-mgt/releases/latest/download/cookie-manager-v0.1.0.zip)
 - Giải nén file ZIP ra một thư mục
 
 **Bước 2** — Mở trang Extension:
@@ -35,7 +34,7 @@ Comprehensive cookie management extension for Chrome. View, edit, search, import
 
 **Bước 3** — Cài extension:
 - Nhấn nút **Tải tiện ích đã giải nén** (Load unpacked)
-- Tìm đến thư mục đã giải nén → chọn thư mục `build/chrome-mv3-prod`
+- Chọn thư mục vừa giải nén
 - Xong! 🎉 Extension xuất hiện trên thanh công cụ Chrome
 
 > 💡 **Mẹo**: Nhấn vào biểu tượng ghim (📌) trên thanh extension để ghim Cookie Manager cho dễ truy cập.
@@ -44,9 +43,9 @@ Comprehensive cookie management extension for Chrome. View, edit, search, import
 
 ## 📥 Installation — 3 steps, no build required!
 
-1. Go to [https://github.com/nhh0718/cache-mgt](https://github.com/nhh0718/cache-mgt) → **Code** → **Download ZIP** → extract
+1. [**Download cookie-manager-v0.1.0.zip**](https://github.com/nhh0718/cache-mgt/releases/latest/download/cookie-manager-v0.1.0.zip) → extract
 2. Open `chrome://extensions/` → enable **Developer mode** (top right)
-3. Click **Load unpacked** → select the `build/chrome-mv3-prod` folder inside the extracted ZIP
+3. Click **Load unpacked** → select the extracted folder
 
 Done! The extension icon appears in your Chrome toolbar.
 
