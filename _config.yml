@@ -1,0 +1,5 @@
+title: Cookie Manager
+description: Quản lý cookie toàn diện cho Chrome — xem, sửa, tìm kiếm, nhập/xuất, hồ sơ cookie, giám sát thời gian thực.
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+  - jekyll-remote-theme
