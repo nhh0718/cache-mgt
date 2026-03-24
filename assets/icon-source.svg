@@ -1,17 +1,2 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
-  <!-- Full square background — no transparent corners -->
-  <rect x="0" y="0" width="128" height="128" fill="#EE7613"/>
-  <!-- Cookie body -->
-  <circle cx="64" cy="64" r="50" fill="#F6B871"/>
-  <circle cx="64" cy="64" r="46" fill="#EE7613"/>
-  <!-- Chocolate chips -->
-  <ellipse cx="44" cy="47" rx="9" ry="8" fill="#772E10" transform="rotate(-15 44 47)"/>
-  <ellipse cx="80" cy="40" rx="8" ry="7" fill="#772E10" transform="rotate(10 80 40)"/>
-  <ellipse cx="62" cy="74" rx="10" ry="9" fill="#772E10" transform="rotate(-5 62 74)"/>
-  <ellipse cx="40" cy="82" rx="6" ry="5.5" fill="#772E10" transform="rotate(20 40 82)"/>
-  <ellipse cx="88" cy="70" rx="7" ry="6" fill="#772E10" transform="rotate(-10 88 70)"/>
-  <!-- Chip highlights -->
-  <ellipse cx="42" cy="45" rx="3" ry="2.5" fill="#933610" transform="rotate(-15 42 45)"/>
-  <ellipse cx="78" cy="38" rx="2.5" ry="2" fill="#933610" transform="rotate(10 78 38)"/>
-  <ellipse cx="60" cy="72" rx="3.5" ry="2.5" fill="#933610" transform="rotate(-5 60 72)"/>
-</svg>
+<!-- Generated via ImageMagick — see scripts/fix-icons.mjs for regeneration -->
+<!-- Use: bash scripts/gen-icons.sh to regenerate all sizes -->
