@@ -1,9 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
-  <!-- Rounded square background -->
-  <rect x="0" y="0" width="128" height="128" rx="28" ry="28" fill="#EE7613"/>
-  <!-- Inner subtle gradient ring -->
-  <rect x="0" y="0" width="128" height="128" rx="28" ry="28" fill="none" stroke="#DF5C09" stroke-width="4" opacity="0.5"/>
-  <!-- Cookie body circle -->
+  <!-- Full square background — no transparent corners -->
+  <rect x="0" y="0" width="128" height="128" fill="#EE7613"/>
+  <!-- Cookie body -->
   <circle cx="64" cy="64" r="50" fill="#F6B871"/>
   <circle cx="64" cy="64" r="46" fill="#EE7613"/>
   <!-- Chocolate chips -->
@@ -16,9 +14,4 @@
   <ellipse cx="42" cy="45" rx="3" ry="2.5" fill="#933610" transform="rotate(-15 42 45)"/>
   <ellipse cx="78" cy="38" rx="2.5" ry="2" fill="#933610" transform="rotate(10 78 38)"/>
   <ellipse cx="60" cy="72" rx="3.5" ry="2.5" fill="#933610" transform="rotate(-5 60 72)"/>
-  <!-- Cookie edge texture -->
-  <circle cx="26" cy="58" r="3.5" fill="#DF5C09"/>
-  <circle cx="99" cy="52" r="3" fill="#DF5C09"/>
-  <circle cx="58" cy="102" r="2.5" fill="#DF5C09"/>
-  <circle cx="86" cy="96" r="3" fill="#DF5C09"/>
 </svg>
