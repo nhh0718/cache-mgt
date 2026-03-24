@@ -56,7 +56,7 @@ export function CookieList({
   const deselectAll = useCallback(() => { setSelectedIds(new Set()) }, [])
 
   const handleCopy = useCallback(async (cookie: CookieItem) => {
-    try { await navigator.clipboard.writeText(`${cookie.name}=${cookie.value}`); showToast(`${t("toast_copied")} "${cookie.name}"`) }
+    try { await navigator.clipboard.writeText(cookie.value); showToast(`${t("toast_copied")} "${cookie.name}"`) }
     catch { showToast(t("toast_copy_failed"), "error") }
   }, [])
 

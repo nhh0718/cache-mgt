@@ -25,7 +25,7 @@ Comprehensive cookie management extension for Chrome. View, edit, search, import
 ## 📥 Cài đặt — Chỉ 3 bước, không cần code!
 
 **Bước 1** — Tải về:
-- 👉 [**Tải cookie-manager-v0.1.0.zip tại đây**](https://github.com/nhh0718/cache-mgt/releases/latest/download/cookie-manager-v0.1.0.zip)
+- 👉 [**Tải cookie-manager.zip tại đây**](https://github.com/nhh0718/cache-mgt/releases/latest/download/cookie-manager.zip) _(luôn là bản mới nhất)_
 - Giải nén file ZIP ra một thư mục
 
 **Bước 2** — Mở trang Extension:
@@ -43,7 +43,7 @@ Comprehensive cookie management extension for Chrome. View, edit, search, import
 
 ## 📥 Installation — 3 steps, no build required!
 
-1. [**Download cookie-manager-v0.1.0.zip**](https://github.com/nhh0718/cache-mgt/releases/latest/download/cookie-manager-v0.1.0.zip) → extract
+1. [**Download cookie-manager.zip**](https://github.com/nhh0718/cache-mgt/releases/latest/download/cookie-manager.zip) _(always latest)_ → extract
 2. Open `chrome://extensions/` → enable **Developer mode** (top right)
 3. Click **Load unpacked** → select the extracted folder
 
