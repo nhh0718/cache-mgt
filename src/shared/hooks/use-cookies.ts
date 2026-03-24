@@ -121,6 +121,42 @@ export function useCookies(options: UseCookiesOptions = {}) {
     [fetchCookies]
   )
 
+  const cloneCookie = useCallback(
+    async (sourceCookie: CookieItem, targetUrl: string) => {
+      try {
+        const { hostname } = new URL(targetUrl)
+        // Derive domain: for 2+ part hostnames, prefix with dot (known ccTLD limitation for v1)
+        const parts = hostname.split(".")
+        const targetDomain = parts.length > 2
+          ? "." + parts.slice(-2).join(".")
+          : hostname
+
+        const isHttps = targetUrl.startsWith("https")
+        const secure = sourceCookie.secure ? isHttps : false
+
+        const url = buildCookieUrl(targetDomain, sourceCookie.path, secure)
+
+        await chrome.cookies.set({
+          url,
+          name: sourceCookie.name,
+          value: sourceCookie.value,
+          domain: targetDomain,
+          path: sourceCookie.path,
+          secure,
+          httpOnly: sourceCookie.httpOnly,
+          sameSite: sourceCookie.sameSite || "unspecified",
+          ...(sourceCookie.session ? {} : { expirationDate: sourceCookie.expirationDate })
+        })
+
+        await fetchCookies()
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Failed to clone cookie")
+        throw err
+      }
+    },
+    [fetchCookies]
+  )
+
   // Initial fetch
   useEffect(() => {
     fetchCookies()
@@ -142,6 +178,7 @@ export function useCookies(options: UseCookiesOptions = {}) {
     refresh: fetchCookies,
     setCookie,
     removeCookie,
-    removeMultiple
+    removeMultiple,
+    cloneCookie
   }
 }

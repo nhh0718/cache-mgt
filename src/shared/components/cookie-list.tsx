@@ -17,6 +17,7 @@ interface CookieListProps {
   onDeleteCookie: (cookie: CookieItem) => Promise<void>
   onDeleteMultiple: (cookies: CookieItem[]) => Promise<void>
   onRefresh: () => void
+  onCloneCookie?: (source: CookieItem, targetUrl: string) => Promise<void>
   currentDomain?: string
   compact?: boolean
   headerActions?: React.ReactNode
@@ -24,7 +25,7 @@ interface CookieListProps {
 
 export function CookieList({
   cookies, loading, error, onSetCookie, onDeleteCookie, onDeleteMultiple,
-  onRefresh, currentDomain, compact = false, headerActions
+  onRefresh, onCloneCookie, currentDomain, compact = false, headerActions
 }: CookieListProps) {
   const [searchQuery, setSearchQuery] = useState("")
   const [domainFilter, setDomainFilter] = useState("")
@@ -82,6 +83,15 @@ export function CookieList({
     try { await onSetCookie(cookie); showToast(`${t("toast_saved")} "${cookie.name}"`) }
     catch { showToast(t("toast_save_failed"), "error") }
   }, [onSetCookie])
+
+  const handleClone = useCallback(async (cookie: CookieItem, targetUrl: string) => {
+    try {
+      await onCloneCookie?.(cookie, targetUrl)
+      showToast(`${t("toast_cloned")} ${new URL(targetUrl).hostname}`)
+    } catch {
+      showToast(t("toast_clone_failed"), "error")
+    }
+  }, [onCloneCookie])
 
   if (loading) return (
     <div className="flex items-center justify-center py-8">
@@ -145,7 +155,8 @@ export function CookieList({
             <CookieRow key={cookieKey(cookie)} cookie={cookie}
               selected={selectedIds.has(cookieKey(cookie))}
               onSelect={(sel) => toggleSelect(cookie, sel)}
-              onEdit={setEditingCookie} onDelete={handleDelete} onCopy={handleCopy} compact={compact} />
+              onEdit={setEditingCookie} onDelete={handleDelete} onCopy={handleCopy}
+              onClone={onCloneCookie ? handleClone : undefined} compact={compact} />
           ))
         )}
       </div>

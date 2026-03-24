@@ -14,7 +14,7 @@ function Popup() {
   useTheme()
   const { t } = useI18n()
   const tab = useCurrentTab()
-  const { cookies, loading, error, refresh, setCookie, removeCookie, removeMultiple } =
+  const { cookies, loading, error, refresh, setCookie, removeCookie, removeMultiple, cloneCookie } =
     useCookies(tab?.url ? { url: tab.url } : {})
 
   const openSidePanel = async () => {
@@ -60,7 +60,7 @@ function Popup() {
       <div className="p-3">
         <CookieList cookies={cookies} loading={loading} error={error}
           onSetCookie={setCookie} onDeleteCookie={removeCookie} onDeleteMultiple={removeMultiple}
-          onRefresh={refresh} currentDomain={tab?.domain} compact />
+          onRefresh={refresh} onCloneCookie={cloneCookie} currentDomain={tab?.domain} compact />
       </div>
       <ToastContainer />
     </div>

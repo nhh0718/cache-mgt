@@ -83,5 +83,14 @@
   "theme_dark": { "message": "Tối" },
   "theme_system": { "message": "Hệ thống" },
   "and_more": { "message": "... và thêm nữa" },
-  "settings_title": { "message": "Cài đặt" }
+  "settings_title": { "message": "Cài đặt" },
+  "btn_clone": { "message": "Nhân bản" },
+  "clone_title": { "message": "Nhân Bản Cookie" },
+  "clone_target_url": { "message": "URL đích" },
+  "clone_target_placeholder": { "message": "https://trang-dich.com" },
+  "clone_or_select_tab": { "message": "Hoặc chọn tab đang mở:" },
+  "clone_domain_preview": { "message": "Sẽ đặt domain:" },
+  "clone_secure_warning": { "message": "Secure flag sẽ bị tắt (URL dùng HTTP)" },
+  "toast_cloned": { "message": "Đã nhân bản cookie tới" },
+  "toast_clone_failed": { "message": "Nhân bản thất bại" }
 }

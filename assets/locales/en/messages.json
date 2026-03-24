@@ -83,5 +83,14 @@
   "theme_dark": { "message": "Dark" },
   "theme_system": { "message": "System" },
   "and_more": { "message": "... and more" },
-  "settings_title": { "message": "Settings" }
+  "settings_title": { "message": "Settings" },
+  "btn_clone": { "message": "Clone" },
+  "clone_title": { "message": "Clone Cookie" },
+  "clone_target_url": { "message": "Target URL" },
+  "clone_target_placeholder": { "message": "https://target-site.com" },
+  "clone_or_select_tab": { "message": "Or select an open tab:" },
+  "clone_domain_preview": { "message": "Will set domain:" },
+  "clone_secure_warning": { "message": "Secure flag will be removed (HTTP target)" },
+  "toast_cloned": { "message": "Cookie cloned to" },
+  "toast_clone_failed": { "message": "Clone failed" }
 }

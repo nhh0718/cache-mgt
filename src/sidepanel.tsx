@@ -15,7 +15,7 @@ function SidePanel() {
   useTheme()
   const { t } = useI18n()
   const tab = useCurrentTab()
-  const { cookies, loading, error, refresh, setCookie, removeCookie, removeMultiple } =
+  const { cookies, loading, error, refresh, setCookie, removeCookie, removeMultiple, cloneCookie } =
     useCookies(tab?.url ? { url: tab.url } : {})
 
   return (
@@ -48,7 +48,7 @@ function SidePanel() {
       <div className="p-4">
         <CookieList cookies={cookies} loading={loading} error={error}
           onSetCookie={setCookie} onDeleteCookie={removeCookie} onDeleteMultiple={removeMultiple}
-          onRefresh={refresh} currentDomain={tab?.domain} />
+          onRefresh={refresh} onCloneCookie={cloneCookie} currentDomain={tab?.domain} />
       </div>
 
       <div className="border-t border-gray-100 p-4 dark:border-gray-700">
