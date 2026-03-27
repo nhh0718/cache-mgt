@@ -1,5 +1,7 @@
 import "./style.css"
 
+import { useState } from "react"
+
 import { CookieIcon } from "./shared/components/cookie-icon"
 import { CookieList } from "./shared/components/cookie-list"
 import { LocaleToggle } from "./shared/components/locale-toggle"
@@ -8,11 +10,14 @@ import { ToastContainer } from "./shared/components/toast"
 import { useI18n } from "./shared/hooks/use-i18n"
 import { useCookies } from "./shared/hooks/use-cookies"
 import { useCurrentTab } from "./shared/hooks/use-current-tab"
+import { useUpdateCheck } from "./shared/hooks/use-update-check"
 import { useTheme } from "./shared/hooks/use-theme"
 
 function Popup() {
   useTheme()
   const { t } = useI18n()
+  const update = useUpdateCheck()
+  const [updateDismissed, setUpdateDismissed] = useState(false)
   const tab = useCurrentTab()
   const { cookies, loading, error, refresh, setCookie, removeCookie, removeMultiple, cloneCookie } =
     useCookies(tab?.url ? { url: tab.url, storeId: tab.storeId } : {})
@@ -57,6 +62,21 @@ function Popup() {
           <span className="text-xs text-gray-500 dark:text-gray-400">
             {t("cookies_for")} <span className="font-medium text-gray-700 dark:text-gray-300">{tab.domain}</span>
           </span>
+        </div>
+      )}
+
+      {update?.available && !updateDismissed && (
+        <div className="flex items-center justify-between border-b border-blue-100 bg-blue-50 px-3 py-1.5 dark:border-blue-800 dark:bg-blue-900/30">
+          <span className="text-xs text-blue-700 dark:text-blue-300">
+            {t("update_available").replace("{version}", update.version || "")}
+            {" "}<span className="text-blue-500 dark:text-blue-400">{t("update_instructions")}</span>
+          </span>
+          <button onClick={() => setUpdateDismissed(true)}
+            className="ml-2 shrink-0 rounded p-0.5 text-blue-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-800 dark:hover:text-blue-200">
+            <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
       )}
 

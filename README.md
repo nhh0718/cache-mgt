@@ -24,32 +24,44 @@ Comprehensive cookie management extension for Chrome. View, edit, search, import
 
 ---
 
-## 📥 Cài đặt — Chỉ 3 bước, không cần code!
+## 📥 Cài đặt nhanh (Windows)
 
-**Bước 1** — Tải về:
-- 👉 [**Tải cookie-manager.zip tại đây**](https://github.com/nhh0718/cache-mgt/releases/latest/download/cookie-manager.zip) _(luôn là bản mới nhất)_
-- Giải nén file ZIP ra một thư mục
+**Cách 1 — Một lệnh duy nhất** (khuyên dùng):
 
-**Bước 2** — Mở trang Extension:
-- Mở Chrome, gõ vào thanh địa chỉ: `chrome://extensions/`
-- Bật **Chế độ nhà phát triển** (Developer mode) — công tắc ở góc **trên bên phải**
+Mở PowerShell, dán lệnh:
+```powershell
+irm https://raw.githubusercontent.com/nhh0718/cache-mgt/main/scripts/install.ps1 | iex
+```
 
-**Bước 3** — Cài extension:
-- Nhấn nút **Tải tiện ích đã giải nén** (Load unpacked)
-- Chọn thư mục vừa giải nén
-- Xong! 🎉 Extension xuất hiện trên thanh công cụ Chrome
+Sau đó:
+1. Mở Chrome → `chrome://extensions/` → bật **Developer mode**
+2. Nhấn **Load unpacked** → chọn thư mục `%USERPROFILE%\cookie-manager`
 
-> 💡 **Mẹo**: Nhấn vào biểu tượng ghim (📌) trên thanh extension để ghim Cookie Manager cho dễ truy cập.
+**Cập nhật**: Chạy lại lệnh trên → nhấn nút Reload trên `chrome://extensions/`
+
+**Cách 2 — Tải thủ công**:
+- [Tải cookie-manager.zip](https://github.com/nhh0718/cache-mgt/releases/latest/download/cookie-manager.zip) → giải nén → Load unpacked
+
+> 💡 **Mẹo**: Ghim extension lên thanh công cụ bằng biểu tượng 📌
 
 ---
 
-## 📥 Installation — 3 steps, no build required!
+## 📥 Installation (Mac/Linux)
 
-1. [**Download cookie-manager.zip**](https://github.com/nhh0718/cache-mgt/releases/latest/download/cookie-manager.zip) _(always latest)_ → extract
-2. Open `chrome://extensions/` → enable **Developer mode** (top right)
-3. Click **Load unpacked** → select the extracted folder
+**Option 1 — One command** (recommended):
 
-Done! The extension icon appears in your Chrome toolbar.
+```bash
+curl -sL https://raw.githubusercontent.com/nhh0718/cache-mgt/main/scripts/install.sh | bash
+```
+
+Then:
+1. Open Chrome → `chrome://extensions/` → enable **Developer mode**
+2. Click **Load unpacked** → select `~/cookie-manager`
+
+**Update**: Run the command again → click Reload on `chrome://extensions/`
+
+**Option 2 — Manual download**:
+- [Download cookie-manager.zip](https://github.com/nhh0718/cache-mgt/releases/latest/download/cookie-manager.zip) → extract → Load unpacked
 
 ---
 

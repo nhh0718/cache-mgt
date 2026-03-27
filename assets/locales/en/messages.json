@@ -92,5 +92,8 @@
   "clone_domain_preview": { "message": "Will set domain:" },
   "clone_secure_warning": { "message": "Secure flag will be removed (HTTP target)" },
   "toast_cloned": { "message": "Cookie cloned to" },
-  "toast_clone_failed": { "message": "Clone failed" }
+  "toast_clone_failed": { "message": "Clone failed" },
+  "update_available": { "message": "New version {version} available!" },
+  "update_instructions": { "message": "Run the install script to update, then reload the extension." },
+  "update_dismiss": { "message": "Dismiss" }
 }

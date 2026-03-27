@@ -92,5 +92,8 @@
   "clone_domain_preview": { "message": "Sẽ đặt domain:" },
   "clone_secure_warning": { "message": "Secure flag sẽ bị tắt (URL dùng HTTP)" },
   "toast_cloned": { "message": "Đã nhân bản cookie tới" },
-  "toast_clone_failed": { "message": "Nhân bản thất bại" }
+  "toast_clone_failed": { "message": "Nhân bản thất bại" },
+  "update_available": { "message": "Có bản cập nhật {version}!" },
+  "update_instructions": { "message": "Chạy lại lệnh cài đặt để cập nhật, sau đó reload extension." },
+  "update_dismiss": { "message": "Bỏ qua" }
 }
