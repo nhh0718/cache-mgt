@@ -95,5 +95,8 @@
   "toast_clone_failed": { "message": "Nhân bản thất bại" },
   "update_available": { "message": "Có bản cập nhật {version}!" },
   "update_instructions": { "message": "Chạy lại lệnh cài đặt để cập nhật, sau đó reload extension." },
-  "update_dismiss": { "message": "Bỏ qua" }
+  "update_dismiss": { "message": "Bỏ qua" },
+  "btn_check_update": { "message": "Kiểm tra cập nhật" },
+  "update_checking": { "message": "Đang kiểm tra..." },
+  "update_latest": { "message": "Bạn đang dùng phiên bản mới nhất!" }
 }

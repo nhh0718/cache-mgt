@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Cookie Manager — Install / Update Script (Mac/Linux)
-# Usage: curl -sL https://raw.githubusercontent.com/nhh0718/cache-mgt/main/scripts/install.sh | bash
+# Cookie Manager — Script Cài đặt / Cập nhật (Mac/Linux)
+# Cách dùng: curl -sL https://raw.githubusercontent.com/nhh0718/cache-mgt/main/scripts/install.sh | bash
 
 set -e
 
@@ -9,32 +9,32 @@ ZIP_URL="https://github.com/nhh0718/cache-mgt/releases/latest/download/cookie-ma
 TEMP_ZIP="/tmp/cookie-manager.zip"
 
 echo ""
-echo "  Cookie Manager — Installing..."
+echo "  Cookie Manager — Đang cài đặt..."
 echo ""
 
-# Download latest release
-echo "  Downloading from GitHub Releases..."
+# Tải bản mới nhất từ GitHub
+echo "  Đang tải từ GitHub Releases..."
 curl -sL "$ZIP_URL" -o "$TEMP_ZIP"
 
-# Remove old install if exists
+# Xóa bản cũ nếu có
 if [ -d "$INSTALL_DIR" ]; then
     rm -rf "$INSTALL_DIR"
-    echo "  Removed old version."
+    echo "  Đã xóa bản cũ."
 fi
 
-# Extract
+# Giải nén
 mkdir -p "$INSTALL_DIR"
 unzip -qo "$TEMP_ZIP" -d "$INSTALL_DIR"
 rm -f "$TEMP_ZIP"
 
 echo ""
-echo "  Installed to: $INSTALL_DIR"
+echo "  Cài đặt thành công tại: $INSTALL_DIR"
 echo ""
-echo "  Next steps:"
-echo "  1. Open Chrome -> chrome://extensions/"
-echo "  2. Enable 'Developer mode' (top right)"
-echo "  3. Click 'Load unpacked' -> select:"
+echo "  Bước tiếp theo:"
+echo "  1. Mở Chrome -> nhập chrome://extensions/"
+echo "  2. Bật 'Chế độ nhà phát triển' (góc trên bên phải)"
+echo "  3. Nhấn 'Tải tiện ích đã giải nén' -> chọn thư mục:"
 echo "     $INSTALL_DIR"
 echo ""
-echo "  To UPDATE later: run this command again, then click Reload on chrome://extensions/"
+echo "  CẬP NHẬT: Chạy lại lệnh này, rồi nhấn nút Tải lại trên chrome://extensions/"
 echo ""

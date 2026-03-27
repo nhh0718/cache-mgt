@@ -95,5 +95,8 @@
   "toast_clone_failed": { "message": "Clone failed" },
   "update_available": { "message": "New version {version} available!" },
   "update_instructions": { "message": "Run the install script to update, then reload the extension." },
-  "update_dismiss": { "message": "Dismiss" }
+  "update_dismiss": { "message": "Dismiss" },
+  "btn_check_update": { "message": "Check Update" },
+  "update_checking": { "message": "Checking..." },
+  "update_latest": { "message": "You're on the latest version!" }
 }

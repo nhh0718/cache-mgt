@@ -12,6 +12,7 @@ import { ThemeToggle } from "../shared/components/theme-toggle"
 import { ToastContainer, showToast } from "../shared/components/toast"
 import { useI18n, t as tStatic } from "../shared/hooks/use-i18n"
 import { useCookies } from "../shared/hooks/use-cookies"
+import { useUpdateCheck } from "../shared/hooks/use-update-check"
 import { useTheme } from "../shared/hooks/use-theme"
 import type { CookieItem } from "../shared/types/cookie"
 
@@ -20,6 +21,8 @@ type Tab = "cookies" | "profiles" | "import-export" | "monitor"
 function FullPage() {
   useTheme()
   const { t } = useI18n()
+  const { available, version, checking, checkNow } = useUpdateCheck()
+  const [updateDismissed, setUpdateDismissed] = useState(false)
   const [activeTab, setActiveTab] = useState<Tab>("cookies")
   const [storeId, setStoreId] = useState<string>("0")
   useEffect(() => {
@@ -65,6 +68,14 @@ function FullPage() {
               {cookies.length} {t("total_cookies")}
             </span>
             <div className="ml-auto flex items-center gap-1">
+              <button onClick={async () => { await checkNow(); if (!available) showToast(t("update_latest")) }}
+                disabled={checking} title={t("btn_check_update")}
+                className="rounded p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-600 disabled:opacity-50 dark:hover:bg-gray-700 dark:hover:text-gray-300">
+                <svg className={`h-4 w-4 ${checking ? "animate-spin" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+              </button>
               <LocaleToggle />
               <ThemeToggle />
             </div>
@@ -84,6 +95,23 @@ function FullPage() {
           </nav>
         </div>
       </header>
+
+      {available && !updateDismissed && (
+        <div className="mx-auto max-w-5xl px-6 pt-3">
+          <div className="flex items-center justify-between rounded-lg border border-blue-200 bg-blue-50 px-4 py-2 dark:border-blue-800 dark:bg-blue-900/30">
+            <span className="text-sm text-blue-700 dark:text-blue-300">
+              {t("update_available").replace("{version}", version || "")}
+              {" "}<span className="text-blue-500 dark:text-blue-400">{t("update_instructions")}</span>
+            </span>
+            <button onClick={() => setUpdateDismissed(true)}
+              className="ml-3 shrink-0 rounded p-1 text-blue-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-800 dark:hover:text-blue-200">
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
 
       <main className="mx-auto max-w-5xl px-6 py-6">
         {activeTab === "cookies" && (

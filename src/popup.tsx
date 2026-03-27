@@ -2,6 +2,7 @@ import "./style.css"
 
 import { useState } from "react"
 
+import { showToast } from "./shared/components/toast"
 import { CookieIcon } from "./shared/components/cookie-icon"
 import { CookieList } from "./shared/components/cookie-list"
 import { LocaleToggle } from "./shared/components/locale-toggle"
@@ -16,7 +17,7 @@ import { useTheme } from "./shared/hooks/use-theme"
 function Popup() {
   useTheme()
   const { t } = useI18n()
-  const update = useUpdateCheck()
+  const { available, version, checking, checkNow } = useUpdateCheck()
   const [updateDismissed, setUpdateDismissed] = useState(false)
   const tab = useCurrentTab()
   const { cookies, loading, error, refresh, setCookie, removeCookie, removeMultiple, cloneCookie } =
@@ -35,6 +36,14 @@ function Popup() {
           <h1 className="text-sm font-bold text-cookie-700 dark:text-cookie-400">{t("app_title")}</h1>
         </div>
         <div className="flex items-center gap-0.5">
+          <button onClick={async () => { await checkNow(); if (!available) showToast(t("update_latest")) }}
+            disabled={checking} title={t("btn_check_update")}
+            className="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600 disabled:opacity-50 dark:hover:bg-gray-700 dark:hover:text-gray-300">
+            <svg className={`h-4 w-4 ${checking ? "animate-spin" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+          </button>
           <LocaleToggle />
           <ThemeToggle />
           <button onClick={openSidePanel} title={t("open_sidepanel")}
@@ -65,10 +74,10 @@ function Popup() {
         </div>
       )}
 
-      {update?.available && !updateDismissed && (
+      {available && !updateDismissed && (
         <div className="flex items-center justify-between border-b border-blue-100 bg-blue-50 px-3 py-1.5 dark:border-blue-800 dark:bg-blue-900/30">
           <span className="text-xs text-blue-700 dark:text-blue-300">
-            {t("update_available").replace("{version}", update.version || "")}
+            {t("update_available").replace("{version}", version || "")}
             {" "}<span className="text-blue-500 dark:text-blue-400">{t("update_instructions")}</span>
           </span>
           <button onClick={() => setUpdateDismissed(true)}
