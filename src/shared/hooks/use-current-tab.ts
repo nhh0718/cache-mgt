@@ -4,6 +4,9 @@ interface CurrentTab {
   url: string
   domain: string
   tabId: number
+  incognito: boolean
+  storeId: string
+  windowId: number
 }
 
 /**
@@ -24,7 +27,10 @@ export function useCurrentTab() {
         setTab({
           url: activeTab.url,
           domain: urlObj.hostname,
-          tabId: activeTab.id!
+          tabId: activeTab.id!,
+          incognito: activeTab.incognito ?? false,
+          storeId: (activeTab as any).cookieStoreId ?? (activeTab.incognito ? "1" : "0"),
+          windowId: activeTab.windowId!
         })
       }
     } catch {

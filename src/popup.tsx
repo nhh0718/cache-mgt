@@ -15,7 +15,7 @@ function Popup() {
   const { t } = useI18n()
   const tab = useCurrentTab()
   const { cookies, loading, error, refresh, setCookie, removeCookie, removeMultiple, cloneCookie } =
-    useCookies(tab?.url ? { url: tab.url } : {})
+    useCookies(tab?.url ? { url: tab.url, storeId: tab.storeId } : {})
 
   const openSidePanel = async () => {
     const win = await chrome.windows.getCurrent()
@@ -39,7 +39,10 @@ function Popup() {
                 d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7" />
             </svg>
           </button>
-          <button onClick={() => chrome.tabs.create({ url: chrome.runtime.getURL("tabs/fullpage.html") })} title={t("open_fullpage")}
+          <button onClick={async () => {
+              const win = await chrome.windows.getCurrent()
+              chrome.tabs.create({ url: chrome.runtime.getURL("tabs/fullpage.html"), windowId: win.id })
+            }} title={t("open_fullpage")}
             className="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700 dark:hover:text-gray-300">
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}

@@ -16,7 +16,7 @@ function SidePanel() {
   const { t } = useI18n()
   const tab = useCurrentTab()
   const { cookies, loading, error, refresh, setCookie, removeCookie, removeMultiple, cloneCookie } =
-    useCookies(tab?.url ? { url: tab.url } : {})
+    useCookies(tab?.url ? { url: tab.url, storeId: tab.storeId } : {})
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
@@ -29,7 +29,10 @@ function SidePanel() {
           <div className="flex items-center gap-0.5">
             <LocaleToggle />
             <ThemeToggle />
-            <button onClick={() => chrome.tabs.create({ url: chrome.runtime.getURL("tabs/fullpage.html") })} title={t("open_fullpage")}
+            <button onClick={async () => {
+                const win = await chrome.windows.getCurrent()
+                chrome.tabs.create({ url: chrome.runtime.getURL("tabs/fullpage.html"), windowId: win.id })
+              }} title={t("open_fullpage")}
               className="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700 dark:hover:text-gray-300">
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}

@@ -1,6 +1,6 @@
 import "../style.css"
 
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 import { CookieChangeMonitor } from "../shared/components/cookie-change-monitor"
 import { CookieIcon } from "../shared/components/cookie-icon"
@@ -21,7 +21,13 @@ function FullPage() {
   useTheme()
   const { t } = useI18n()
   const [activeTab, setActiveTab] = useState<Tab>("cookies")
-  const { cookies, loading, error, refresh, setCookie, removeCookie, removeMultiple, cloneCookie } = useCookies()
+  const [storeId, setStoreId] = useState<string>("0")
+  useEffect(() => {
+    chrome.windows.getCurrent().then(win => {
+      if (win.incognito) setStoreId("1")
+    })
+  }, [])
+  const { cookies, loading, error, refresh, setCookie, removeCookie, removeMultiple, cloneCookie } = useCookies({ storeId })
 
   const handleImport = useCallback(async (importedCookies: CookieItem[]) => {
     let count = 0

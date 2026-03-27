@@ -12,8 +12,10 @@ Comprehensive cookie management extension for Chrome. View, edit, search, import
 | Xem tất cả cookie (mọi domain) | — | — | ✅ |
 | Tìm kiếm & lọc | ✅ | ✅ | ✅ |
 | Sửa / tạo / xóa cookie | ✅ | ✅ | ✅ |
+| Clone cookie sang domain khác | ✅ | ✅ | ✅ |
 | Sao chép (value, name, full string) | ✅ | ✅ | ✅ |
 | Chọn nhiều & xóa hàng loạt | ✅ | ✅ | ✅ |
+| Hỗ trợ ẩn danh (Incognito) | ✅ | ✅ | ✅ |
 | Nhập / Xuất (JSON, Netscape, Header) | — | — | ✅ |
 | Hồ sơ Cookie (lưu & khôi phục) | — | — | ✅ |
 | Giám sát cookie thời gian thực | — | ✅ | ✅ |

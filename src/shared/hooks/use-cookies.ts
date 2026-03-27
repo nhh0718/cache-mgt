@@ -30,6 +30,8 @@ interface UseCookiesOptions {
   domain?: string
   /** If provided, only fetch cookies matching this URL */
   url?: string
+  /** Cookie store ID — "0" for normal, "1" for incognito */
+  storeId?: string
 }
 
 /**
@@ -49,6 +51,7 @@ export function useCookies(options: UseCookiesOptions = {}) {
       const query: chrome.cookies.GetAllDetails = {}
       if (options.domain) query.domain = options.domain
       if (options.url) query.url = options.url
+      if (options.storeId) query.storeId = options.storeId
 
       const result = await chrome.cookies.getAll(query)
       setCookies(result.map(toCookieItem))
@@ -57,7 +60,7 @@ export function useCookies(options: UseCookiesOptions = {}) {
     } finally {
       setLoading(false)
     }
-  }, [options.domain, options.url])
+  }, [options.domain, options.url, options.storeId])
 
   const setCookie = useCallback(
     async (cookie: Partial<CookieItem> & { name: string; value: string; domain: string }) => {
@@ -77,7 +80,8 @@ export function useCookies(options: UseCookiesOptions = {}) {
           secure: cookie.secure,
           httpOnly: cookie.httpOnly,
           sameSite: cookie.sameSite || "unspecified",
-          expirationDate: cookie.expirationDate
+          expirationDate: cookie.expirationDate,
+          storeId: cookie.storeId ?? options.storeId
         })
 
         await fetchCookies()
@@ -93,7 +97,7 @@ export function useCookies(options: UseCookiesOptions = {}) {
     async (cookie: CookieItem) => {
       try {
         const url = buildCookieUrl(cookie.domain, cookie.path, cookie.secure)
-        await chrome.cookies.remove({ url, name: cookie.name })
+        await chrome.cookies.remove({ url, name: cookie.name, storeId: cookie.storeId ?? options.storeId })
         await fetchCookies()
       } catch (err) {
         setError(err instanceof Error ? err.message : "Failed to remove cookie")
@@ -109,7 +113,7 @@ export function useCookies(options: UseCookiesOptions = {}) {
         await Promise.all(
           cookiesToRemove.map((c) => {
             const url = buildCookieUrl(c.domain, c.path, c.secure)
-            return chrome.cookies.remove({ url, name: c.name })
+            return chrome.cookies.remove({ url, name: c.name, storeId: c.storeId ?? options.storeId })
           })
         )
         await fetchCookies()
@@ -145,6 +149,7 @@ export function useCookies(options: UseCookiesOptions = {}) {
           secure,
           httpOnly: sourceCookie.httpOnly,
           sameSite: sourceCookie.sameSite || "unspecified",
+          storeId: options.storeId,
           ...(sourceCookie.session ? {} : { expirationDate: sourceCookie.expirationDate })
         })
 
